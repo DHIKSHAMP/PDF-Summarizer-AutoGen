@@ -79,6 +79,9 @@ Follow these steps to set up and run the project locally:
     ```bash
     http://127.0.0.1:5000
     ```
+# Output:
+
+📩Output Images: [@Output](https://github.com/DHIKSHAMP/PDF-Summarizer-AutoGen/tree/main/output)
 
 # 💡 Use Cases
 
