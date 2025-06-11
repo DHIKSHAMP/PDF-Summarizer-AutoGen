@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PDF Summarizer</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      background: url("https://cdn.dribbble.com/users/2206859/screenshots/5795316/main_robot_dribble_icon_1.gif") no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .page {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 1s ease-in-out;
+    }
+
+    .typing-container {
+      font-size: 2rem;
+      font-weight: bold;
+      display: flex;
+      gap: 2px;
+      color:rgb(18, 18, 17);
+      transform: translateX(-250px); /* Shift left */
+
+    }
+
+    .letter {
+      opacity: 0;
+      transform: translateY(-60px);
+      animation: jumpIn 0.8s forwards ease-out;
+    }
+
+    @keyframes jumpIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .slide-left {
+      transform: translateX(-100%);
+    }
+  </style>
+</head>
+<body>
+  <div class="page" id="page">
+    <div class="typing-container" id="typing-text"></div>
+  </div>
+
+  <script>
+    const text = "PDF   Summarizer   using   AutoGen...";
+    const container = document.getElementById("typing-text");
+
+    [...text].forEach((char, i) => {
+      const span = document.createElement("span");
+      span.textContent = char;
+      span.className = "letter";
+      span.style.animationDelay = `${i * 0.1}s`;
+      container.appendChild(span);
+    });
+
+    const totalDuration = text.length * 100 + 1000;
+
+    setTimeout(() => {
+      document.getElementById("page").classList.add("slide-left");
+    }, totalDuration);
+
+    setTimeout(() => {
+      window.location.href = "/index";
+    }, totalDuration + 1000);
+  </script>
+</body>
+</html>
